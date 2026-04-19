@@ -1,0 +1,27 @@
+.detail {
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.detail img {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #fff;
+}
+
+button {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.info {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 20px;
+}

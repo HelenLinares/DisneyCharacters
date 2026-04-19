@@ -1,0 +1,11 @@
+.fav {
+  text-align: center;
+}
+
+.card {
+  margin: 15px auto;
+  width: 250px;
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+}

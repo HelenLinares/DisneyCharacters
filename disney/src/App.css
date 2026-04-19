@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI";
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  background: #0c2461;
+  padding: 15px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1 {
+  color: #feca57;
+}
+.menu {
+  display: flex;
+  flex-wrap: wrap; /* 🔥 clave */
+  justify-content: space-around;
+  background: #0c2461;
+  padding: 10px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 14px;
+}
