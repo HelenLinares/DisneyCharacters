@@ -4,33 +4,58 @@ body {
   background: linear-gradient(to right, #1e3c72, #2a5298);
 }
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 🔥 MENÚ PRINCIPAL */
 .menu {
   display: flex;
   justify-content: space-around;
-  background: #0c2461;
-  padding: 15px;
+  align-items: center;
+  background: linear-gradient(135deg, #0c1e3f, #1e3c72);
+  padding: 10px 5px;
+  width: 100%;
 }
 
 .menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-h1 {
-  color: #feca57;
-}
-.menu {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: space-around;
-  background: #0c2461;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  gap: 4px;
+  flex: 1;
 }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-  margin: 5px;
-  font-size: 14px;
+.menu img {
+  width: 28px;
+  height: 28px;
+}
+
+.menu a:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .menu {
+    padding: 8px 2px;
+  }
+
+  .menu a {
+    font-size: 10px;
+  }
+
+  .menu img {
+    width: 24px;
+    height: 24px;
+  }
 }
