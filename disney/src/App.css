@@ -22,7 +22,7 @@ h1 {
 }
 .menu {
   display: flex;
-  flex-wrap: wrap; /* 🔥 clave */
+  flex-wrap: wrap; 
   justify-content: space-around;
   background: #0c2461;
   padding: 10px;

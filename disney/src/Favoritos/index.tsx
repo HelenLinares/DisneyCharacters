@@ -33,7 +33,7 @@ function Favoritos() {
               <Link to={`/character/${c._id}`}>Ver</Link>
 
               <button onClick={() => removeFavorite(c._id)}>
-                ❌ Quitar
+                Quitar
               </button>
             </div>
           ))}
