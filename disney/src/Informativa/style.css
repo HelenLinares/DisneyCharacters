@@ -31,8 +31,7 @@
   left: 50%;
   transform: translateX(-50%);
 
-  width: 50%; 
-  max-width: 500px;
+  width: 50%;                                                     
 
   background: rgba(10, 30, 80, 0.95);
   color: white;
