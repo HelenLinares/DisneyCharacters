@@ -1,53 +1,66 @@
 .home {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  box-sizing: border-box;
 }
 
 input {
-  padding: 10px;
-  border-radius: 20px;
+  padding: 12px 20px;
+  border-radius: 25px;
   border: none;
-  margin: 15px auto;
+  margin: 20px auto;
   width: 90%;
-  max-width: 300px;
+  max-width: 350px;
   display: block;
+  font-size: 16px; /* Evita el zoom automático en iOS al enfocar */
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
+  /* Crea columnas de al menos 150px que se estiran para llenar el espacio */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
   width: 100%;
-  padding: 0 10px;
-  box-sizing: border-box;
+  padding: 10px 0;
 }
 
 .card {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px); /* Efecto elegante de cristal */
   border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 0 10px #ccc;
+  padding: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.card:active {
+  transform: scale(0.98); /* Feedback visual al tocar en celular */
 }
 
 .card img {
   width: 100%;
-  height: 140px;
+  height: 160px;
   object-fit: cover;
   border-radius: 15px;
+  display: block;
 }
 
 .card h3 {
-  font-size: 14px;
+  font-size: 16px;
   color: white;
+  margin: 12px 0 8px;
+  text-transform: capitalize;
 }
 
 .card a {
-  color: white;
+  color: #add8e6; /* Un color un poco más suave para que resalte el link */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+.grid {
+  grid-template-columns: 1fr !important;
 }

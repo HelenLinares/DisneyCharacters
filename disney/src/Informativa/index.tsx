@@ -9,12 +9,6 @@ function Informativa() {
     >
       <div className="overlay">
 
-        
-
-        <div className="box">
-          <p>API con información de 
-            500+ personajes</p>
-        </div>
 
       </div>
     </div>

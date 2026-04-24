@@ -1,7 +1,8 @@
 body {
   margin: 0;
-  font-family: "Segoe UI";
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #1e3c72, #2a5298);
+  min-height: 100vh;
 }
 
 html, body, #root {
@@ -12,18 +13,20 @@ html, body, #root {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 * {
   box-sizing: border-box;
 }
 
-
 .menu {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Permite que los items bajen si no hay espacio */
+  justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #0c1e3f, #1e3c72);
-  padding: 10px 5px;
+  padding: 10px;
   width: 100%;
+  gap: 10px;
 }
 
 .menu a {
@@ -33,13 +36,14 @@ html, body, #root {
   text-decoration: none;
   color: white;
   font-size: 12px;
-  gap: 4px;
-  flex: 1;
+  min-width: 65px; /* Evita que se compriman demasiado */
+  transition: transform 0.2s;
 }
 
 .menu img {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 4px;
 }
 
 .menu a:hover {
@@ -48,15 +52,11 @@ html, body, #root {
 
 @media (max-width: 600px) {
   .menu {
-    padding: 8px 2px;
+    padding: 8px 5px;
+    gap: 5px;
   }
-
   .menu a {
-    font-size: 10px;
-  }
-
-  .menu img {
-    width: 24px;
-    height: 24px;
+    font-size: 11px;
+    min-width: 55px;
   }
 }
