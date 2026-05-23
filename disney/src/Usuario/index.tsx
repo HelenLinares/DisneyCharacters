@@ -1,61 +1,97 @@
 import { useEffect, useState } from "react";
+
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+
+import { auth } from "../firebase";
+
 import "./style.css";
 
 function Usuario() {
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+const [usuario, setUsuario] = useState<any>(null);
+
+  
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("favorites") || "[]");
-    setFavorites(data);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUsuario(user);
+    });
+
+    return () => unsubscribe();
   }, []);
 
+ 
+  const registro = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+
+      alert("Usuario registrado");
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  
+  const login = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+
+      alert("Login correcto");
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+ 
+  const logout = async () => {
+    await signOut(auth);
+
+    alert("Sesión cerrada");
+  };
+
   return (
-    <div className="user">
+    <div className="usuario">
+      <div className="card-usuario">
+        <h1>Disney User</h1>
 
-      {/* PERFIL */}
-      <div className="perfil">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          alt="user"
-        />
-        <h2>Helen Linares</h2>
-       
-      </div>
+        {usuario ? (
+          <>
+            <h3>🟢 Sesión iniciada</h3>
 
-      {/* ESTADÍSTICAS */}
-      <div className="stats">
-        <div className="stat">
-          <h3>{favorites.length}</h3>
-          <p>Favoritos</p>
-        </div>
+            <p>{usuario.email}</p>
 
-        <div className="stat">
-          <h3>Disney</h3>
-          <p>API</p>
-        </div>
-
-        <div className="stat">
-          <h3>2026</h3>
-          <p>Año</p>
-        </div>
-      </div>
-
-      {/* FAVORITOS */}
-      <h2 className="titulo">⭐ Tus personajes</h2>
-
-      <div className="grid">
-        {favorites.length === 0 ? (
-          <p>No tienes favoritos aún</p>
+            <button onClick={logout}>Cerrar Sesión</button>
+          </>
         ) : (
-          favorites.map((c) => (
-            <div key={c._id} className="card">
-              <img src={c.imageUrl} />
-              <p>{c.name}</p>
-            </div>
-          ))
+          <>
+            <h3>🔴 No has iniciado sesión</h3>
+
+            <input
+              type="email"
+              placeholder="Correo"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <button onClick={registro}>Registrarse</button>
+
+            <button onClick={login}>Iniciar Sesión</button>
+          </>
         )}
       </div>
-
     </div>
   );
 }
